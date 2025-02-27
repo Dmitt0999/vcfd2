@@ -1,0 +1,15 @@
+{
+  "name": "vcfd2",
+  "version": "1.0.0",
+  "main": "_worker.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies":{
+  "@cloudflare/workers-types": "^4.20230710.1",
+    "wrangler": "^3.2.0"
+  }
+}
