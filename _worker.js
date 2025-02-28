@@ -301,7 +301,7 @@ var workers_default = {
           if (addressType === 2) {
             queryip = await dns(addressRemote);
             if (queryip && isCloudFlareIP(queryip)) {
-              queryip = "64.68.192." + Math.floor(Math.random() * 255);
+//              queryip = "64.68.192." + Math.floor(Math.random() * 255);
             }
           }
           remoteSocket = connect({
