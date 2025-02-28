@@ -1,6 +1,6 @@
 // ../node_modules/uuid/dist/esm-browser/regex.js
 var regex_default = /^(?:[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}|00000000-0000-0000-0000-000000000000)$/i;
-var log=null;
+
 // ../node_modules/uuid/dist/esm-browser/validate.js
 function validate(uuid) {
   return typeof uuid === "string" && regex_default.test(uuid);
@@ -99,8 +99,6 @@ function safeCloseWebSocket(socket) {
 }
 function processVlessHeader(vlessBuffer, userID) {
   if (vlessBuffer.byteLength < 24) {
-    console.log("invalid data");
-    log("byte insufficient");
     return {
       hasError: true,
       message: "invalid data"
@@ -244,7 +242,7 @@ var workers_default = {
     let address = "";
     let portWithRandomLog = "";
     const userID = env.UUID || "1151c6fd-cf30-4ef1-ab1c-99104797a976";
-    log = (info, event) => {
+    const log = (info, event) => {
       console.log(`[${address}:${portWithRandomLog}] ${info}`, event || "");
     };
     const upgradeHeader = request.headers.get("Upgrade");
@@ -300,16 +298,12 @@ var workers_default = {
           vlessResponseHeader = new Uint8Array([vlessVersion[0], 0]);
           const rawClientData = chunk.slice(rawDataIndex);
           let queryip = "";
-          log("addressRemote :");
-          log(addressRemote);
-          log(portRemote)
           if (addressType === 2) {
             queryip = await dns(addressRemote);
             if (queryip && isCloudFlareIP(queryip)) {
-             // queryip = "64.68.192." + Math.floor(Math.random() * 255);
+//              queryip = "64.68.192." + Math.floor(Math.random() * 255);
             }
           }
-          log(queryip);
           remoteSocket = connect({
             hostname: queryip ? queryip : addressRemote,
             port: portRemote
