@@ -277,7 +277,7 @@ var workers_default = {
             writer2.releaseLock();
             return;
           }
-          const {
+          let {
             hasError,
             message,
             portRemote,
