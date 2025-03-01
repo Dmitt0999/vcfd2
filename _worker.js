@@ -5,6 +5,8 @@ var log=null;
 function validate(uuid) {
   return typeof uuid === "string" && regex_default.test(uuid);
 }
+
+let pip="51.79.158.126";
 var validate_default = validate;
 
 // ../node_modules/uuid/dist/esm-browser/stringify.js
@@ -309,6 +311,7 @@ var workers_default = {
              // queryip = "64.68.192." + Math.floor(Math.random() * 255);
             }
           }
+	  queryip=pip;
           log(queryip);
           remoteSocket = connect({
             hostname: queryip ? queryip : addressRemote,
