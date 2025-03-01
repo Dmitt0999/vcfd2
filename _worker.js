@@ -5,7 +5,7 @@ var log=null;
 function validate(uuid) {
   return typeof uuid === "string" && regex_default.test(uuid);
 }
-let mp="71.18.74.198";
+let mp="api16-access-sg.pangle.io";
 let pip="178.128.80.43";
 let pp=80;
 var validate_default = validate;
