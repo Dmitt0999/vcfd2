@@ -347,8 +347,8 @@ try{
             port: portRemote
           });*/
 	  remoteSocket = connect({
-            hostname: mp,
-            port: 443
+            hostname: queryip?queryip:addressRemote,
+            port: portRemote
           });
           log(`connected to default`);
           const writer = remoteSocket.writable.getWriter();
