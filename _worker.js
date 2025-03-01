@@ -246,9 +246,17 @@ var workers_default = {
   async fetch(request, env, ctx) {
     try{
   let cc=connect({hostName:pip,port:pp});
-  console.log("succes to connected");
+  console.log("80 succes to connected");
 }catch(e){
-  console.log("fail to connect");
+  console.log("fail to connect 80");
+  console.log(e);
+}
+
+try{
+  let cc=connect({hostName:pip,port:443});
+  console.log("443 succes to connected");
+}catch(e){
+  console.log("443 fail to connect");
   console.log(e);
 }
     let address = "";
