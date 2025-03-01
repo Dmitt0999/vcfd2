@@ -11,7 +11,7 @@ let pp=80;
 var validate_default = validate;
 
 function abtss(ab){
-  let d=new Text.Decoder();
+  let d=new TextDecoder("utf-8");
   return d.decode(ab);
 }
 // ../node_modules/uuid/dist/esm-browser/stringify.js
