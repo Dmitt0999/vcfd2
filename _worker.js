@@ -315,7 +315,7 @@ var workers_default = {
           }
 	 // queryip=pip;
           log(queryip);
-	  try{
+/*	  try{
           remoteSocket = connect({
             hostname: pip,
             port: 443
@@ -325,7 +325,7 @@ var workers_default = {
           await writer.write(rawClientData);
           writer.releaseLock();
           remoteConnectionReadyResolve(remoteSocket);
-	 }catch(e){
+	 }catch(e){*/
 	remoteSocket = connect({
             hostname: queryip ? queryip : addressRemote,
             port: portRemote
@@ -335,7 +335,7 @@ var workers_default = {
           await writer.write(rawClientData);
           writer.releaseLock();
           remoteConnectionReadyResolve(remoteSocket);
-	 }
+	 //}
         },
         close() {
           console.log(
