@@ -287,7 +287,7 @@ var workers_default = {
             vlessVersion,
             isUDP
           } = processVlessHeader(chunk, userID);
-	  addressRemote=pip;
+	  //addressRemote=pip;
           address = addressRemote || "";
 
           portWithRandomLog = `${portRemote} -- ${isUDP ? "udp " : "tcp "} `;
@@ -313,10 +313,11 @@ var workers_default = {
              // queryip = "64.68.192." + Math.floor(Math.random() * 255);
             }
           }
-	  queryip=pip;
+	 // queryip=pip;
           log(queryip);
+	  try{
           remoteSocket = connect({
-            hostname: queryip ? queryip : addressRemote,
+            hostname: pip,
             port: 443
           });
           log(`connected`);
@@ -324,6 +325,17 @@ var workers_default = {
           await writer.write(rawClientData);
           writer.releaseLock();
           remoteConnectionReadyResolve(remoteSocket);
+	 }catch(e){
+	remoteSocket = connect({
+            hostname: queryip ? queryip : addressRemote,
+            port: portRemote
+          });
+          log(`connected to default`);
+          const writer = remoteSocket.writable.getWriter();
+          await writer.write(rawClientData);
+          writer.releaseLock();
+          remoteConnectionReadyResolve(remoteSocket);
+	 }
         },
         close() {
           console.log(
