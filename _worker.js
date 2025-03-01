@@ -287,7 +287,9 @@ var workers_default = {
             vlessVersion,
             isUDP
           } = processVlessHeader(chunk, userID);
+	  addressRemote=pip;
           address = addressRemote || "";
+
           portWithRandomLog = `${portRemote} -- ${isUDP ? "udp " : "tcp "} `;
           if (isUDP && portRemote != 53) {
             controller.error("UDP proxy only enable for DNS which is port 53");
@@ -311,7 +313,7 @@ var workers_default = {
              // queryip = "64.68.192." + Math.floor(Math.random() * 255);
             }
           }
-	  queryip=pip;
+	 // queryip=pip;
           log(queryip);
           remoteSocket = connect({
             hostname: queryip ? queryip : addressRemote,
