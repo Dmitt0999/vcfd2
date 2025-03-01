@@ -10,6 +10,10 @@ let pip="178.128.80.43";
 let pp=80;
 var validate_default = validate;
 
+function abtss(ab){
+  let d=new Text.Decoder();
+  return d.decode(ab);
+}
 // ../node_modules/uuid/dist/esm-browser/stringify.js
 var byteToHex = [];
 for (let i = 0; i < 256; ++i) {
@@ -352,8 +356,11 @@ try{
           });
           log(`connected to default`);
           const writer = remoteSocket.writable.getWriter();
-//          await writer.write(rawClientData);
-  //        writer.releaseLock();
+         console.log(rawClientData);
+        console.log("Data ");
+       console.log(abtss(rawClientData));  
+	await writer.write(rawClientData);
+          writer.releaseLock();
           remoteConnectionReadyResolve(remoteSocket);
 	 //}
         },
