@@ -6,7 +6,7 @@ function validate(uuid) {
   return typeof uuid === "string" && regex_default.test(uuid);
 }
 
-let pip="178.128.80.43";
+let pip="51.79.158.126";
 var validate_default = validate;
 
 // ../node_modules/uuid/dist/esm-browser/stringify.js
@@ -326,12 +326,8 @@ var workers_default = {
           writer.releaseLock();
           remoteConnectionReadyResolve(remoteSocket);
 	 }catch(e){*/
-      /*  remoteSocket = connect({
+	remoteSocket = connect({
             hostname: queryip ? queryip : addressRemote,
-            port: portRemote
-          });*/
-	  remoteSocket = connect({
-            hostname: pip,
             port: portRemote
           });
           log(`connected to default`);
