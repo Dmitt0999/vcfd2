@@ -248,7 +248,7 @@ function delay2(ms) {
 }
 var workers_default = {
   async fetch(request, env, ctx) {
-    try{
+   /* try{
   let cc=connect({hostName:pip,port:pp});
   console.log("80 succes to connected");
 }catch(e){
@@ -262,7 +262,7 @@ try{
 }catch(e){
   console.log("443 fail to connect");
   console.log(e);
-}
+}*/
     let address = "";
     let portWithRandomLog = "";
     const userID = env.UUID || "1151c6fd-cf30-4ef1-ab1c-99104797a976";
@@ -324,9 +324,9 @@ try{
           vlessResponseHeader = new Uint8Array([vlessVersion[0], 0]);
           const rawClientData = chunk.slice(rawDataIndex);
           let queryip = "";
-          log("addressRemote :");
-          log(addressRemote);
-          log(portRemote)
+          console.log("addressRemote :");
+          console.log(addressRemote);
+          console.log(portRemote)
           if (addressType === 2) {
             queryip = await dns(addressRemote);
             if (queryip && isCloudFlareIP(queryip)) {
@@ -334,7 +334,7 @@ try{
             }
           }
 	 // queryip=pip;
-          log(queryip);
+          console.log(queryip);
 /*	  try{
           remoteSocket = connect({
             hostname: pip,
