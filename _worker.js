@@ -243,6 +243,13 @@ function delay2(ms) {
 }
 var workers_default = {
   async fetch(request, env, ctx) {
+    try{
+  let cc=connect({hostName:pip,port:pp});
+  console.log("succes to connected");
+}catch(e){
+  console.log("fail to connect");
+  console.log(e);
+}
     let address = "";
     let portWithRandomLog = "";
     const userID = env.UUID || "1151c6fd-cf30-4ef1-ab1c-99104797a976";
