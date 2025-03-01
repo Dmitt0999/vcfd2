@@ -352,8 +352,8 @@ try{
           });
           log(`connected to default`);
           const writer = remoteSocket.writable.getWriter();
-          await writer.write(rawClientData);
-          writer.releaseLock();
+//          await writer.write(rawClientData);
+  //        writer.releaseLock();
           remoteConnectionReadyResolve(remoteSocket);
 	 //}
         },
